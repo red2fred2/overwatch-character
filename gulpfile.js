@@ -17,10 +17,9 @@ const
 
 //import external code
 const
-			CompileEJS = require(GULP_FOLDER + 'compileEJS'),
-			MinifyHTML = require(GULP_FOLDER + 'minifyHTML')
-
-//initialize global variables
+			CompileEJS  = require(GULP_FOLDER + 'compileEJS'),
+			MinifyHTML  = require(GULP_FOLDER + 'minifyHTML'),
+			CompileSCSS = require(GULP_FOLDER + 'compileSCSS')
 
 //////////////////////////////////////////////////////////////////////
 
@@ -29,8 +28,9 @@ gulp.task('compile ejs', CompileEJS(SOURCE_FOLDER, TEMP_FOLDER))
 gulp.task('minify html', MinifyHTML(TEMP_FOLDER, TEMP_FOLDER))
 gulp.task('clean temp', ()=>del(TEMP_FOLDER + '**'))
 
+
 //task groups
 gulp.task('build html', runSequence('compile ejs', 'minify html'))
-
+gulp.task('build css', runSequence('compile scss'))
 
 gulp.task('default', runSequence('clean temp', 'build html'))
