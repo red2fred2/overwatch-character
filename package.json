@@ -4,8 +4,11 @@
   "license": "MPL 2.0",
   "description": "An app for indecisive Overwatch players.",
   "dependencies": {
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-ejs": "^3.0.1",
-    "gulp-rename": "^1.2.2"
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "run-sequence": "^2.2.0"
   }
 }

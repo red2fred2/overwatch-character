@@ -10,6 +10,7 @@ const
 
 //constants
 const
+			EJS_FOLDER      = 'ejs/',
 			SELECTOR_STRING = 'pages/*.ejs'
 
 //import external code
@@ -19,7 +20,7 @@ const
 //////////////////////////////////////////////////////////////////////
 
 module.exports = function(inputFolder, outputFolder) {
-  gulp.src(inputFolder + SELECTOR_STRING)
+  gulp.src(inputFolder + EJS_FOLDER + SELECTOR_STRING)
   .pipe(
     ejs()
   )

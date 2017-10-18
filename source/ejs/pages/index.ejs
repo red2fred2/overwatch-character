@@ -1,0 +1,17 @@
+<%/* This Source Code Form is subject to the terms of the Mozilla Public
+     License, v. 2.0. If a copy of the MPL was not distributed with this
+     file, You can obtain one at http://mozilla.org/MPL/2.0/. */%>
+
+<%const TEMPLATES = '../templates/'%>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include(TEMPLATES + 'head.ejs', {title: 'Title'}) %>
+    <%- include(TEMPLATES + 'importCSS.ejs', {list: ['ined.css', 'https://static.red2fred2.com/test.css']}) %>
+    <%- include(TEMPLATES + 'importJS.ejs', {defer: false, list: ['browserifyBundle.js', 'https://static.red2fred2.com/test.js']}) %>
+  </head>
+  <body>
+    Text
+  </body>
+</html>

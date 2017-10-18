@@ -4,23 +4,33 @@
 
 //import libraries
 const 
-			gulp = require('gulp')
+			gulp        = require('gulp'),
+			runSequence = require('run-sequence'),
+			del					= require('del')
 
 //constants
 const
 			SOURCE_FOLDER = './source/',
 			BUILD_FOLDER  = './build/',
 			GULP_FOLDER   = './gulp/',
-			TEMP_FOLDER   = './temp'
+			TEMP_FOLDER   = './temp/'
 
 //import external code
 const
-			CompileEJS = require(GULP_FOLDER + 'compileEJS')
+			CompileEJS = require(GULP_FOLDER + 'compileEJS'),
+			MinifyHTML = require(GULP_FOLDER + 'minifyHTML')
 
 //initialize global variables
 
 //////////////////////////////////////////////////////////////////////
 
-gulp.task('compileEJS', CompileEJS(SOURCE_FOLDER, TEMP_FOLDER))
+//simple tasks
+gulp.task('compile ejs', CompileEJS(SOURCE_FOLDER, TEMP_FOLDER))
+gulp.task('minify html', MinifyHTML(TEMP_FOLDER, TEMP_FOLDER))
+gulp.task('clean temp', ()=>del(TEMP_FOLDER + '**'))
 
-gulp.task('default', ['compileEJS'])
+//task groups
+gulp.task('build html', runSequence('compile ejs', 'minify html'))
+
+
+gulp.task('default', runSequence('clean temp', 'build html'))
