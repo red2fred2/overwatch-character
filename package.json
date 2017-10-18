@@ -1,0 +1,9 @@
+{
+  "name": "overwatch-character",
+  "version": "0",
+  "license": "MPL 2.0",
+  "description": "An app for indecisive Overwatch players.",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
