@@ -4,23 +4,31 @@
 
 //import libraries
 const 
-			gulp = require('gulp')
+			gulp   = require('gulp'),
+			rename = require('gulp-rename'),
+			ejs    = require('gulp-ejs')
 
 //constants
 const
-			SOURCE_FOLDER = './source/',
-			BUILD_FOLDER  = './build/',
-			GULP_FOLDER   = './gulp/',
-			TEMP_FOLDER   = './temp'
+			SELECTOR_STRING = 'pages/*.ejs'
 
 //import external code
-const
-			CompileEJS = require(GULP_FOLDER + 'compileEJS')
 
 //initialize global variables
 
 //////////////////////////////////////////////////////////////////////
 
-gulp.task('compileEJS', CompileEJS(SOURCE_FOLDER, TEMP_FOLDER))
-
-gulp.task('default', ['compileEJS'])
+module.exports = function(inputFolder, outputFolder) {
+  gulp.src(inputFolder + SELECTOR_STRING)
+  .pipe(
+    ejs()
+  )
+  .pipe(
+    rename(function(path) {
+      path.extname = '.html'
+    })
+  )
+  .pipe(
+    gulp.dest(outputFolder)
+  )
+}
