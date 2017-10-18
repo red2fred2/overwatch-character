@@ -42,6 +42,4 @@ Here is the gist of each file:
 
 - package.json is an ugly way of saying what all is used in this application
 
-- README.md
-#### THIS
-*pay attention dummy*
+- README.md #### THIS *pay attention dummy*
