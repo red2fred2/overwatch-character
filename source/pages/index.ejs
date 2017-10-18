@@ -12,6 +12,16 @@
     , {
       title: 'Title'
     }) %>
+    
+    <%- include(
+      TEMPLATES + 'importCSS.ejs'
+    , {
+      list: [
+        'toBeInlined.css',
+        'https://static.red2fred2.com/test.css'
+      ]
+    }) %>
+    
     <%- include(
       TEMPLATES + 'importJS.ejs'
     , {
