@@ -4,8 +4,8 @@
 
 <% for(var i in list) { %>
   <script 
+    type = "text/javascript"
     src = "<%= list[i] %>"
     <%= defer ? 'defer' : '' %>
-    type = "text/javascript"
   ></script>
 <% } %>
