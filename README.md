@@ -43,10 +43,3 @@ Here is the gist of each file:
 - package.json is an ugly way of saying what all is used in this application
 
 - README.md **THIS** *pay attention dummy*
-
-### code notation
-I am trying to get in the habit of using hungarian notation and self commenting to make my code easier to read.
-
-I understand that hungarian notation without explaination makes the code harder to read, so here is a list of the different prefixes I used for this project:
-
-- ```javascript  GC_variable //a global constant```
