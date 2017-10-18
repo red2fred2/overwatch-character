@@ -2,8 +2,27 @@
      License, v. 2.0. If a copy of the MPL was not distributed with this
      file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-<ul>
-  <% for(var i = 0; i < 10; i++) { %>
-  <li><%= i %></li>
-  <% } %>
-</ul>
+<%const TEMPLATES = '../templates/'%>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include(
+      TEMPLATES + 'head.ejs'
+    , {
+      title: 'Title'
+    }) %>
+    <%- include(
+      TEMPLATES + 'importJS.ejs'
+    , {
+      defer: true,
+      list: [
+        'browserifyBundle.js',
+        'https://static.red2fred2.com/test.js'
+      ]
+    }) %>
+  </head>
+  <body>
+    
+  </body>
+</html>
