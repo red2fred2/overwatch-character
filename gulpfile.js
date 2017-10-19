@@ -19,18 +19,32 @@ const
 const
 			CompileEJS  = require(GULP_FOLDER + 'compileEJS'),
 			MinifyHTML  = require(GULP_FOLDER + 'minifyHTML'),
-			CompileSCSS = require(GULP_FOLDER + 'compileSCSS')
+			CompileSCSS = require(GULP_FOLDER + 'compileSCSS'),
+			MinifyCSS   = require(GULP_FOLDER + 'minifyCSS'),
+			CompileJS   = require(GULP_FOLDER + 'compileJS'),
+			MinifyJS    = require(GULP_FOLDER + 'minifyJS'),
+			Inline      = require(GULP_FOLDER + 'inline.js')
 
 //////////////////////////////////////////////////////////////////////
 
 //simple tasks
 gulp.task('compile ejs', CompileEJS(SOURCE_FOLDER, TEMP_FOLDER))
 gulp.task('minify html', MinifyHTML(TEMP_FOLDER, TEMP_FOLDER))
-gulp.task('clean temp', ()=>del(TEMP_FOLDER + '**'))
 
+gulp.task('clean temp', ()=>del(TEMP_FOLDER + '**'))
+gulp.task('clean build', ()=>del(BUILD_FOLDER + '**'))
+
+gulp.task('compile scss', CompileSCSS(SOURCE_FOLDER, TEMP_FOLDER))
+gulp.task('minify css', MinifyCSS(TEMP_FOLDER, TEMP_FOLDER))
+
+gulp.task('compile js', CompileJS(SOURCE_FOLDER, TEMP_FOLDER))
+gulp.task('minify js', MinifyJS(TEMP_FOLDER, TEMP_FOLDER))
+
+gulp.task('inline', Inline(TEMP_FOLDER, BUILD_FOLDER))
 
 //task groups
-gulp.task('build html', runSequence('compile ejs', 'minify html'))
-gulp.task('build css', runSequence('compile scss'))
+gulp.task('build css', runSequence('compile scss', 'minify css'))
+gulp.task('build js', runSequence('compile js', 'minify js'))
+gulp.task('build html', runSequence('compile ejs', 'build css', 'build js', 'inline'))
 
-gulp.task('default', runSequence('clean temp', 'build html'))
+gulp.task('default', runSequence('clean temp', 'clean build', 'build html'))

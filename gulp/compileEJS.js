@@ -13,10 +13,6 @@ const
 			EJS_FOLDER      = 'ejs/',
 			SELECTOR_STRING = 'pages/*.ejs'
 
-//import external code
-
-//initialize global variables
-
 //////////////////////////////////////////////////////////////////////
 
 module.exports = function(inputFolder, outputFolder) {

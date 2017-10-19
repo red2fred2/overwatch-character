@@ -11,10 +11,6 @@ const
 const
 			SELECTOR_STRING = '*.html'
 
-//import external code
-
-//initialize global variables
-
 //////////////////////////////////////////////////////////////////////
 
 module.exports = function(inputFolder, outputFolder) {

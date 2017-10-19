@@ -11,13 +11,14 @@ const
 //constants
 const
 			SCSS_FOLDER     = 'scss/',
-			SELECTOR_STRING = 'style/*.scss'
+			SELECTOR_STRING = 'main.scss'
 
 //////////////////////////////////////////////////////////////////////
 
 module.exports = function(inputFolder, outputFolder) {
+  //gulp.src(inputFolder + SELECTOR_STRING)
   gulp.src(inputFolder + SCSS_FOLDER + SELECTOR_STRING)
-  .pipe(
+	.pipe(
     sass()
   )
   .pipe(
