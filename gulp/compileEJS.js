@@ -19,7 +19,7 @@ module.exports = function(inputFolder, outputFolder) {
   gulp.src(inputFolder + EJS_FOLDER + SELECTOR_STRING)
   .pipe(
     ejs()
-  )
+	)
   .pipe(
     rename(function(path) {
       path.extname = '.html'
@@ -28,4 +28,5 @@ module.exports = function(inputFolder, outputFolder) {
   .pipe(
     gulp.dest(outputFolder)
   )
+	console.log(inputFolder + ' to ' + outputFolder)
 }
