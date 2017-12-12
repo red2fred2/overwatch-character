@@ -1,22 +1,3 @@
-# Random Overwatch character selector
-
-### overwatch-character
-
-If you are an indecisive Overwatch player like I am, you often wonder if you are accidentally becoming a Hanzo main. Well no more! The random 
-Overwatch character selector allows you to:
-
-- Stop being a Hanzo main
-
-- Play Winston
-
-- Git gud scrub
-
-- Realize how to counter characters
-
-- Not be trash in a random heroes match
-
----
-
 ## for people who are interested in the code
 *(of course you are, you are on github)*
 
